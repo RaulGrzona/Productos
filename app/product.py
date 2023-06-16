@@ -14,8 +14,8 @@ class Product:
 
     @staticmethod
     def get_highest_price(products):  # static method
-        max_price = float('-inf')
+        max_price = float(-1)
         for product in products:
-            if product.price > max_price:
+            if isinstance(product, Product) and product.price > max_price:
                 max_price = product.price
         return max_price
