@@ -1,5 +1,6 @@
 from app.product import Product
 
+
 class TestProduct:
     def test__init__(self):
         p1 = Product(name="Mouse", price=30, stock=3)
@@ -8,7 +9,7 @@ class TestProduct:
         assert p1.stock == 3
         assert p1.brand == "Coke"
         assert Product.brand == "Coke"
-        
+
     def test__get_product_with_higher_price__false(self):
         p1 = Product(name="Mouse", price=30, stock=3)
         p2 = Product(name="Cable USB", price=330, stock=3)
@@ -38,3 +39,10 @@ class TestProduct:
         products = [1, p1, 3]
         assert Product.get_highest_price(products) == 30
 
+    def test__get_brand(self):
+        assert Product.get_brand() == "Coke"
+
+    def test__set_brand(self):
+        Product.set_brand("Pepsi")
+        assert Product.get_brand() == "Pepsi"
+       
